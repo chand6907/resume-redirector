@@ -28,16 +28,16 @@
       <h1>Redirecting in <span id="countdown">3</span> seconds...</h1>
       <p>
         If you are not redirected automatically,
-        <a id="redirect-link" href="#" target="_blank">click here</a>.
+        <a id="redirect-link" href="#">click here</a>.
       </p>
     </div>
-
     <script>
-      const redirectUrl = "https://drive.google.com/file/d/1W4_lovJAnoifKuCVG5wTKVIsXNVaexM6/preview";
+      const redirectUrl =
+        "https://drive.google.com/file/d/1W4_lovJAnoifKuCVG5wTKVIsXNVaexM6/view?usp=sharing"; 
 
-      const countdownElement = document.getElementById("countdown");
-      const redirectLink = document.getElementById("redirect-link");
-      let countdownTime = 3;
+      var countdownElement = document.getElementById("countdown");
+      var redirectLink = document.getElementById("redirect-link");
+      var countdownTime = 3; 
 
       function updateCountdown() {
         if (countdownTime > 0) {
@@ -45,12 +45,13 @@
           countdownElement.textContent = countdownTime;
         } else {
           clearInterval(countdownInterval);
-          window.open(redirectUrl, "_blank");
+          window.location.href = redirectUrl;
         }
       }
 
       redirectLink.href = redirectUrl;
-      const countdownInterval = setInterval(updateCountdown, 1000);
+
+      var countdownInterval = setInterval(updateCountdown, 1000);
     </script>
   </body>
 </html>
