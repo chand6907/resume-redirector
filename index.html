@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting...</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+      .container {
+        text-align: center;
+      }
+      #countdown {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Redirecting in <span id="countdown">3</span> seconds...</h1>
+      <p>
+        If you are not redirected automatically,
+        <a id="redirect-link" href="#">click here</a>.
+      </p>
+    </div>
+
+    <script>
+      // ✅ Direct download link generated from Google Drive file ID
+      const redirectUrl = "https://drive.google.com/uc?export=download&id=1W4_lovJAnoifKuCVG5wTKVIsXNVaexM6";
+
+      const countdownElement = document.getElementById("countdown");
+      const redirectLink = document.getElementById("redirect-link");
+      let countdownTime = 3;
+
+      function updateCountdown() {
+        if (countdownTime > 0) {
+          countdownTime--;
+          countdownElement.textContent = countdownTime;
+        } else {
+          clearInterval(countdownInterval);
+          window.location.href = redirectUrl;
+        }
+      }
+
+      redirectLink.href = redirectUrl;
+      const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
+  </body>
+</html>
